@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Title from "@/components/title";
 import { useState, useEffect } from "react";
-import React from "react";
 
 function App() {
   return (
@@ -16,11 +15,8 @@ function App() {
 export default App;
 
 function Desktop1(props) {
-  const onClick = () => {
-    alert("접수 완료");
-  };
-  const dlClick = () => {
-    alert("주문 취소");
+  const onClick = (count) => {
+    alert({ count });
   };
   const [toDo, setToDo] = useState("");
   const [toDos, setToDos] = useState([]);
@@ -107,7 +103,7 @@ function Desktop1(props) {
                 <div className="rectangle-2"></div>
                 <div
                   className="text notosans-bold-white-30px"
-                  onClick={onClick}
+                  onClick={() => onClick()}
                   type="button"
                   value={toDo}
                 >
@@ -118,13 +114,7 @@ function Desktop1(props) {
                 </p>
               </div>
               <div className="overlap-group">
-                <div
-                  className="text-1 notosans-bold-white-30px"
-                  onClick={dlClick}
-                  type="button"
-                >
-                  {text7}
-                </div>
+                <div className="text-1 notosans-bold-white-30px">{text7}</div>
               </div>
             </div>
             <img className="line-1" src="imgs/line-1.png" alt="line-1" />
@@ -160,6 +150,7 @@ function Desktop1(props) {
                 <div className="text-1 notosans-bold-white-30px">{text7}</div>
               </div>
             </div>
+
             <img className="line-1" src="imgs/line-1.png" alt="line-1" />
           </div>
         </div>
