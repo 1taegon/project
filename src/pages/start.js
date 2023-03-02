@@ -16,6 +16,9 @@ function Start() {
 export default Start;
 
 function Desktop1(props) {
+  const dlClick = () => {
+    alert("주문 취소");
+  };
   const {
     text1,
     text2,
@@ -28,7 +31,6 @@ function Desktop1(props) {
     text5,
     text6,
     ice21,
-    text8,
     text7,
     x411Gcc44111,
     text10,
@@ -83,7 +85,7 @@ function Desktop1(props) {
                 <p className="ice-2-1 notosans-bold-black-25px-2">{ice21}</p>
                 <div className="rectangle-2-1"></div>
                 <div className="text notosans-bold-blue-ribbon-30px">
-                  {text8}
+                  {text10}
                 </div>
 
                 <p className="x411-gcc-4-411 notosans-normal-black-25px-22">
@@ -91,7 +93,12 @@ function Desktop1(props) {
                 </p>
               </div>
               <div className="overlap-group">
-                <div className="text-1 notosans-bold-white-30px">{text7}</div>
+                <div
+                  className="text-1 notosans-bold-white-30px"
+                  onClick={dlClick}
+                >
+                  {text7}
+                </div>
               </div>
             </div>
             <img className="line-1" src="imgs/line-1.png" alt="line-1" />
@@ -109,7 +116,12 @@ function Desktop1(props) {
                 </p>
               </div>
               <div className="overlap-group">
-                <div className="text-1 notosans-bold-white-30px">{text7}</div>
+                <div
+                  className="text-1 notosans-bold-white-30px"
+                  onClick={dlClick}
+                >
+                  {text7}
+                </div>
               </div>
             </div>
             <img className="line-1" src="imgs/line-1.png" alt="line-1" />
@@ -127,7 +139,12 @@ function Desktop1(props) {
                 </p>
               </div>
               <div className="overlap-group">
-                <div className="text-1 notosans-bold-white-30px">{text7}</div>
+                <div
+                  className="text-1 notosans-bold-white-30px"
+                  onClick={dlClick}
+                >
+                  {text7}
+                </div>
               </div>
             </div>
             <img className="line-1" src="imgs/line-1.png" alt="line-1" />
@@ -152,7 +169,6 @@ const desktop1Data = {
   text6: "[메뉴 5개] 12000원",
   ice21: "(Ice)아메리카노 2개 / 딸기 라떼 1개 / (Hot) 카페 모카 2개",
   x411Gcc44111: "광주광역시 남구 411 콘텐츠큐브(GCC 4층) 411",
-  text8: "15분",
   text10: "조리완료",
   text7: "주문취소",
 };

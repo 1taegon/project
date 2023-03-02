@@ -2,6 +2,10 @@ import Link from "next/link";
 import Title from "@/components/title";
 import { useState, useEffect } from "react";
 import React from "react";
+import firebase from "./firebase";
+import Modal from "@/components/modal";
+
+console.log(firebase);
 
 function App() {
   return (
@@ -16,24 +20,16 @@ function App() {
 export default App;
 
 function Desktop1(props) {
-  const onClick = () => {
-    alert("접수 완료");
-  };
   const dlClick = () => {
     alert("주문 취소");
   };
-  const [toDo, setToDo] = useState("");
-  const [toDos, setToDos] = useState([]);
-  const onChange = (event) => setToDo(event.target.value);
-  const onSubmit = (event) => {
-    event.preventDefault();
-    if (toDo === "") {
-      return;
-    }
-    setToDo("");
-    setToDos((currentArray) => [toDo, ...currentArray]);
+  const [counter, setValue] = useState(0);
+  const onClick = () => {
+    setValue((prev) => prev + 1), alert("주문 접수");
   };
-  console.log(toDos);
+
+  const [showModal, setShowModal] = useState(false);
+
   const {
     text1,
     text2,
@@ -62,11 +58,9 @@ function Desktop1(props) {
           <div className="overlap-group1">
             <Link legacyBehavior href={"/"}>
               <div className="rectangle-17">
-                <div
-                  className="text-1-3 notosans-bold-black-30px"
-                  onSubmit={onSubmit}
-                >
-                  {text1}({toDos.length})
+                <div className="text-1-3 notosans-bold-black-30px">{text1}</div>
+                <div className="number notosans-bold-black-30px">
+                  ({counter})
                 </div>
 
                 <div className="rectangle-21"></div>
@@ -77,7 +71,7 @@ function Desktop1(props) {
               <div className="rectangle-18">
                 <div className="text-4 notosans-bold-black-30px">{text4}</div>
                 <div className="number-1 notosans-bold-black-30px">
-                  {number2}
+                  {counter}
                 </div>
               </div>
             </Link>
@@ -105,13 +99,18 @@ function Desktop1(props) {
                 <div className="text-6 notosans-bold-black-30px">{text6}</div>
                 <p className="ice-2-1 notosans-bold-black-25px-2">{ice21}</p>
                 <div className="rectangle-2"></div>
-                <div
-                  className="text notosans-bold-white-30px"
-                  onClick={onClick}
-                  type="button"
-                  value={toDo}
-                >
-                  {text8}
+                <div className="text notosans-bold-white-30px" type="button">
+                  {/* 주문받기를 누르면 모달이 뜨고 모달에서 시간 설정 후 완료를 누르면 접수완료 뜨며 1이 증가하는거로 바꿀 예정 */}
+                  <div>
+                    <div type="button" onClick={() => setShowModal(true)}>
+                      {text8}
+                    </div>
+                    <Modal onClose={() => setShowModal(false)} show={showModal}>
+                      <h1>예상 조리 시간</h1>
+                      예상시간 : <input type="text" placeholder="분" />
+                      <button onClick={onClick}>{text8}</button>
+                    </Modal>
+                  </div>
                 </div>
                 <p className="x411-gcc-4-411 notosans-normal-black-25px-22">
                   {x411Gcc44111}
@@ -131,7 +130,12 @@ function Desktop1(props) {
             <div className="overlap-group-container-1">
               <div className="overlap-group-1">
                 <div className="rectangle-2"></div>
-                <div className="text notosans-bold-white-30px">{text8}</div>
+                <div
+                  className="text notosans-bold-white-30px"
+                  onClick={onClick}
+                >
+                  {text8}
+                </div>
                 <div className="text-1-1 notosans-bold-black-60px">{text5}</div>
                 <div className="text-1-2 notosans-bold-black-30px">{text6}</div>
                 <p className="ice-2 notosans-normal-black-25px-22">{ice21}</p>
@@ -140,14 +144,25 @@ function Desktop1(props) {
                 </p>
               </div>
               <div className="overlap-group">
-                <div className="text-1 notosans-bold-white-30px">{text7}</div>
+                <div
+                  className="text-1 notosans-bold-white-30px"
+                  onClick={dlClick}
+                  type="button"
+                >
+                  {text7}
+                </div>
               </div>
             </div>
             <img className="line-1" src="imgs/line-1.png" alt="line-1" />
             <div className="overlap-group-container-2">
               <div className="overlap-group-1">
                 <div className="rectangle-2"></div>
-                <div className="text notosans-bold-white-30px">{text8}</div>
+                <div
+                  className="text notosans-bold-white-30px"
+                  onClick={onClick}
+                >
+                  {text8}
+                </div>
                 <div className="text-1-1 notosans-bold-black-60px">{text5}</div>
                 <div className="text-1-2 notosans-bold-black-30px">{text6}</div>
                 <p className="ice-2 notosans-normal-black-25px-22">{ice21}</p>
@@ -157,7 +172,12 @@ function Desktop1(props) {
               </div>
 
               <div className="overlap-group">
-                <div className="text-1 notosans-bold-white-30px">{text7}</div>
+                <div
+                  className="text-1 notosans-bold-white-30px"
+                  onClick={dlClick}
+                >
+                  {text7}
+                </div>
               </div>
             </div>
             <img className="line-1" src="imgs/line-1.png" alt="line-1" />
