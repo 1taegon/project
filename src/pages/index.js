@@ -24,6 +24,7 @@ function Desktop1(props) {
     alert("주문 취소");
   };
   const [counter, setValue] = useState(0);
+
   const onClick = () => {
     setValue((prev) => prev + 1), alert("주문 접수");
   };
@@ -35,7 +36,6 @@ function Desktop1(props) {
     text2,
     text3,
     text4,
-    number2,
     number3,
     number4,
     xnew,
@@ -203,5 +203,4 @@ const desktop1Data = {
   x411Gcc44111: "광주광역시 남구 411 콘텐츠큐브(GCC 4층) 411",
   text8: "접수하기",
   text7: "주문취소",
-  onClick_text: "접수 성공",
 };

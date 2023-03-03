@@ -29,16 +29,6 @@ function Desktop1(props) {
     ice21,
     text8,
     x411Gcc44111,
-    text10,
-    text13,
-    text14,
-    ice22,
-    x411Gcc44112,
-    text12,
-    text15,
-    text16,
-    ice23,
-    x411Gcc44113,
   } = props;
   return (
     <div className="container-center-horizontal">

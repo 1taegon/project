@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCHqWiHWj6uRCK29RvdJ-Em1FgevmUEkbI",
-  authDomain: "cafe-82903.firebaseapp.com",
-  projectId: "cafe-82903",
-  storageBucket: "cafe-82903.appspot.com",
-  messagingSenderId: "220327878726",
-  appId: "1:220327878726:web:40dcf1b00b29ef9319ea47",
-  measurementId: "G-KV4CKEQGP3",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGIN_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
